@@ -1,0 +1,8 @@
+include ':BraintreeApi'
+include ':BraintreeData'
+include ':Drop-In'
+
+include ':TestUtils'
+include ':Lint'
+include ':Demo'
+include ':FakeWallet'

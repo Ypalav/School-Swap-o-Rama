@@ -1,0 +1,10 @@
+.gradle
+/gradle.properties
+/local.properties
+/.idea
+Gemfile.lock
+.DS_Store
+.bundle
+*.iml
+build
+failed_test_screenshots
