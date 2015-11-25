@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:layout_gravity="center|bottom"
+        android:layout_row="0"
+        android:layout_column="2"
+        android:id="@+id/relativeLayout">
+
+
+    </RelativeLayout>
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:id="@+id/sign_in_to_main"
+        android:textStyle="normal"
+        android:typeface="normal"
+        android:textSize="20dp"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signin_to_signup"
+        android:text="new user?"
+        android:onClick="onButtonClick"
+        android:textColor="#000080"
+        android:textStyle="bold"
+        android:layout_below="@+id/sign_in_to_main"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:autoText="false"
+        android:gravity="center"
+        android:singleLine="false"
+        android:text="School Swap O'Rama"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:layout_row="16"
+        android:layout_column="0"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textIsSelectable="false"
+        android:password="false"
+        android:phoneNumber="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email"
+        android:background="#F0FFFF"
+        android:layout_gravity="center"
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_marginBottom="63dp"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:singleLine="false"
+        android:textColorHighlight="#000000"
+        android:hint="Enter Email"
+        android:textAlignment="center" />
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/password"
+        android:background="#F0FFFF"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter password"
+        android:textAlignment="center"
+        android:singleLine="false" />
+
+
+</RelativeLayout>
