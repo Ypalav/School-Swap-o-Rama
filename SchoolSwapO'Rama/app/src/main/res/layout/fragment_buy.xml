@@ -11,5 +11,4 @@
         android:text="Buy Screen"
         android:textSize="20dp"
         android:layout_centerInParent="true"/>
-
 </RelativeLayout>

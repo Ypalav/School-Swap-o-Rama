@@ -1,16 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#17df0d">
 
-    <TextView android:layout_width="fill_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Post Screen"
+        android:text=" Autocomplete by Scanning ISBN"
+        android:id="@+id/Post_ISBN_ScanBt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book name:"
+        android:id="@+id/Post_textBookName"
         android:textSize="20dp"
-        android:layout_centerInParent="true"/>
+        android:layout_weight="0.5"
+        android:layout_below="@+id/Post_ISBN_ScanBt"
+        android:layout_alignRight="@+id/Post_textDescription"
+        android:layout_alignEnd="@+id/Post_textDescription" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Post_inputBookName"
+        android:layout_weight="5.38"
+        android:singleLine="true"
+        android:layout_below="@+id/Post_ISBN_ScanBt"
+        android:layout_toRightOf="@+id/Post_textBookName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Author:"
+        android:id="@+id/Post_textAuthor"
+        android:textSize="20dp"
+        android:layout_weight="0.5"
+        android:layout_below="@+id/Post_inputBookName"
+        android:layout_toLeftOf="@+id/Post_inputAuthor"
+        android:layout_toStartOf="@+id/Post_inputAuthor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Post_inputAuthor"
+        android:layout_weight="5.38"
+        android:singleLine="true"
+        android:layout_below="@+id/Post_inputBookName"
+        android:layout_toRightOf="@+id/Post_textBookName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ISBN:"
+        android:id="@+id/Post_textISPN"
+        android:textSize="20dp"
+        android:layout_weight="0.5"
+        android:layout_below="@+id/Post_inputAuthor"
+        android:layout_alignRight="@+id/Post_textBookName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Post_inputISPN"
+        android:layout_weight="5.38"
+        android:singleLine="true"
+        android:layout_below="@+id/Post_inputAuthor"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/Post_textDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:id="@+id/Post_textDescription"
+        android:textIsSelectable="false"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/Post_inputDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:id="@+id/Post_inputDescription"
+        android:layout_below="@+id/Post_inputISPN"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/Post_textDescription" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price:"
+        android:id="@+id/Post_textPrice"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/Post_inputPrice"
+        android:layout_alignRight="@+id/Post_textCondition"
+        android:layout_alignEnd="@+id/Post_textCondition" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Post_inputPrice"
+        android:singleLine="true"
+        android:layout_below="@+id/Post_inputDescription"
+        android:layout_toRightOf="@+id/Post_textCondition"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Img:"
+        android:id="@+id/Post_textBookImg"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/Post_photoBt"
+        android:layout_toLeftOf="@+id/Post_photoBt"
+        android:layout_toStartOf="@+id/Post_photoBt" />
+
+    <Button
+        android:background="@drawable/camera_icon"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:id="@+id/Post_photoBt"
+        android:layout_gravity="center_horizontal"
+        android:onClick="clickOk"
+        android:layout_below="@+id/Post_inputPrice"
+        android:layout_alignLeft="@+id/Post_inputPrice"
+        android:layout_alignStart="@+id/Post_inputPrice" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pic name"
+        android:id="@+id/Post_picName"
+        android:layout_alignBottom="@+id/Post_textBookImg"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="180dp"
+        android:id="@+id/Post_imageView"
+        android:layout_below="@+id/Post_photoBt"
+        android:layout_alignLeft="@+id/Post_photoBt"
+        android:layout_alignStart="@+id/Post_photoBt"
+        android:contentDescription="" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Codition:"
+        android:id="@+id/Post_textCondition"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_toLeftOf="@+id/Post_inputDescription"
+        android:layout_toStartOf="@+id/Post_inputDescription" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/Post_imageView"
+        android:layout_alignLeft="@+id/Post_imageView"
+        android:layout_alignStart="@+id/Post_imageView">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like new"
+            android:id="@+id/Post_LikeNewrdoBt" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"
+            android:id="@+id/Post_GoodrdoBt" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Used"
+            android:id="@+id/Post_UsedrdoBt"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:id="@+id/Post_confirmBt"
+        android:layout_gravity="center_horizontal"
+        android:onClick="clickOk"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancle"
+        android:id="@+id/Post_cancleBt"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toRightOf="@+id/Post_confirmBt"
+        android:layout_toEndOf="@+id/Post_confirmBt"
+        android:onClick="clickCancle" />
 
 
 </RelativeLayout>
+</ScrollView>
