@@ -23,8 +23,11 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".SellingActivity"
-            android:label="@string/title_activity_selling" >
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
+       <!-- <activity
+            android:name=".BuyFragment">
+        </activity>-->
     </application>
 
 </manifest>

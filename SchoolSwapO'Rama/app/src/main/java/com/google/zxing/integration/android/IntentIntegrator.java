@@ -18,7 +18,6 @@ package com.google.zxing.integration.android;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +25,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -107,7 +107,7 @@ import java.util.Map;
  * @author Brad Drehmer
  * @author gcstang
  */
-public class IntentIntegrator {
+public class    IntentIntegrator {
 
     public static final int REQUEST_CODE = 0x0000c0de; // Only use bottom 16 bits
     private static final String TAG = IntentIntegrator.class.getSimpleName();
@@ -168,6 +168,8 @@ public class IntentIntegrator {
         this.fragment = fragment;
         initializeConfiguration();
     }
+
+
 
     private void initializeConfiguration() {
         title = DEFAULT_TITLE;

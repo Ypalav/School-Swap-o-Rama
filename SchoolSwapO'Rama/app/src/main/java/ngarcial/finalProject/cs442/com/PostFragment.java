@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +42,7 @@ public class PostFragment extends Fragment implements OnClickListener
     private EditText bookName, bookAuthor, bookISBN, bookdescription, bookPrice;
     private ImageView bookView;
     private RadioButton newBook, goodBook, usedBook;
+    String scanContent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,8 +71,10 @@ public class PostFragment extends Fragment implements OnClickListener
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.Post_ISBN_ScanBt){
-            IntentIntegrator scanIntegrator = new IntentIntegrator(this.getActivity());
+            IntentIntegrator scanIntegrator = new IntentIntegrator(this);
             scanIntegrator.initiateScan();
+            /*Intent intent = new Intent(getActivity(), SellingActivity.class);
+            startActivity(intent);*/
         }
         else if (v.getId()==R.id.Post_photoBt){
 
@@ -86,16 +90,18 @@ public class PostFragment extends Fragment implements OnClickListener
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         //retrieve scan result
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        String scanContent = scanningResult.getContents();
+        scanContent = scanningResult.getContents();
         String scanFormat = scanningResult.getFormatName();
+        Log.v("PostFragment","contents scanned");
         if (scanContent!=null && scanFormat!=null && scanFormat.equalsIgnoreCase("EAN_13")) {
+            Log.v("PostFragment", "Inside If");
             String bookSearchString = "https://www.googleapis.com/books/v1/volumes?"+
-                    "q=isbn:"+scanContent+"&key=AIzaSyA_DKUr30SHMqMMCYy9P2R7oquqtI06TGk";
+                    "q=isbn:"+scanContent+"&key=AIzaSyCMVK8TsxHqdDc547mKgZpo2T9CNZZWikc";
             new GetBookInfo().execute(bookSearchString);
-
-
+            Log.v("PostFragment", "Leaving If");
         }
         else{
+            Log.v("PostFragment", "Inside else");
             Toast toast = Toast.makeText(this.getContext(),
                     "No scan data received!", Toast.LENGTH_SHORT);
             toast.show();
@@ -127,7 +133,10 @@ public class PostFragment extends Fragment implements OnClickListener
                         }
                     }
                 }
-                catch(Exception e){ e.printStackTrace(); }
+                catch(Exception e){
+                    e.printStackTrace();
+
+                }
             }
             return bookBuilder.toString();
         }
@@ -145,7 +154,6 @@ public class PostFragment extends Fragment implements OnClickListener
                 } catch (JSONException jse) {
                     bookName.setText("");
                     jse.printStackTrace();
-
                 }
 
                 StringBuilder authorBuild = new StringBuilder("");
@@ -162,21 +170,16 @@ public class PostFragment extends Fragment implements OnClickListener
                     jse.printStackTrace();
                 }
 
-                try{ bookISBN.setText(volumeObject.getString("ISBN")); }
-                catch(JSONException jse){
-                    bookdescription.setText("");
-                    jse.printStackTrace();
-                }
-
                 try{ bookdescription.setText(volumeObject.getString("description")); }
                 catch(JSONException jse){
                     bookdescription.setText("");
                     jse.printStackTrace();
                 }
 
-                try{ bookdescription.setText(volumeObject.getString("price")); }
-                catch(JSONException jse){
-                    bookdescription.setText("");
+                try{
+                    bookISBN.setText(scanContent); }
+                catch(Exception jse){
+                    bookISBN.setText("");
                     jse.printStackTrace();
                 }
 
